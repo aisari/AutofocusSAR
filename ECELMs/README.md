@@ -1,4 +1,4 @@
-# EHAFnet
+# ECELMs
 
 This is a PyTorch implementation of Bagging-ECELMs. Please refer to "Fast SAR Autofocus based on Ensemble Convolutional Extreme Learning Machine". for details.
 
