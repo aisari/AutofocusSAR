@@ -17,4 +17,14 @@ After the paper is acceptted, the code will be opened fully.
 1. Bagging-CELMs: Fast SAR Autofocus based on Ensemble Convolutional Extreme Learning Machine
 
 
+# Usage
 
+## Dependencies
+
+You need first to install our SAR library ( ``torchsar`` ) by excuting the following command:
+
+Please see [torchsar](https://aisari.iridescent.ink/torchsar/) for details.
+
+```bash
+pip install torchsar
+```
