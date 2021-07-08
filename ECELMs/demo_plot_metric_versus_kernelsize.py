@@ -3,7 +3,7 @@ import torchsar as ts
 import matplotlib.pyplot as plt
 
 
-figsize = (5, 5)
+figsize = (4, 4)
 Nsep = 1
 nshots = 32
 x = list(range(1, nshots * 2, 2))
@@ -33,7 +33,8 @@ plt.xticks(fontproperties=fonttype, size=fontsize)
 plt.yticks(fontproperties=fonttype, size=fontsize)
 # plt.title('Testing loss versus epoch')
 plt.legend(legend, prop=fontdict)
-plt.subplots_adjust(left=0.14, bottom=0.09, right=0.995, top=0.995, wspace=0, hspace=0)
+# plt.subplots_adjust(left=0.14, bottom=0.09, right=0.995, top=0.995, wspace=0, hspace=0)  # (5, 5)
+plt.subplots_adjust(left=0.175, bottom=0.115, right=0.995, top=0.995, wspace=0, hspace=0)  # (4, 4)
 plt.savefig('./BaggingECELMsLossEntropyKernelSize.pdf')
 
 plt.show()
@@ -59,7 +60,8 @@ plt.xticks(fontproperties=fonttype, size=fontsize)
 plt.yticks(fontproperties=fonttype, size=fontsize)
 # plt.title('Testing loss versus epoch')
 plt.legend(legend, prop=fontdict)
-plt.subplots_adjust(left=0.125, bottom=0.09, right=0.995, top=0.995, wspace=0, hspace=0)
+# plt.subplots_adjust(left=0.125, bottom=0.09, right=0.995, top=0.995, wspace=0, hspace=0)  # (5, 5)
+plt.subplots_adjust(left=0.155, bottom=0.115, right=0.995, top=0.995, wspace=0, hspace=0)  # (4, 4)
 plt.savefig('./BaggingECELMsLossContrastKernelSize.pdf')
 
 plt.show()

@@ -16,7 +16,7 @@ Nine RAW SAR images (L1.0) are acquired from [https://asf.alaska.edu/](https://a
 
 ## Making Dataset
 
-The download nine sar raw images are imaged by Range Doppler Algorithm (RDA). Since the orignal image is very large, sub-region with $8192×8192$ is selected for each image. The selected regions are shown as follows: 
+The download nine sar raw images are imaged by Range Doppler Algorithm (RDA). Since the orignal image is very large, sub-region with size of $8192×8192$ is selected for each image. The selected regions are shown as follows: 
 
 |   |   |   |
 |---|---|---|
@@ -37,5 +37,12 @@ Table3: Information of  selected regions.
 | 7  | ALPSRP269950430  | Kaliganj   | (18000, 1000)  | 7195  | 2159.8272  |
 | 8  | ALPSRP273680670  | SimiValley | (15000, 2000)  | 7185  | 2155.1724  |
 | 9  | ALPSRP278552780  | Toledo     | (15000, 1000)  | 7178  | 2141.3276  |
+
+
+
+The dataset can be downloaded from [Google Drive]() (available soon).
+
+
+
 
 
