@@ -19,7 +19,7 @@ python test.py
 
 # Citation
 
-If you find the dataset or this code is usefull, please kindly cite our paper:
+If you find the dataset or this code is useful, please kindly cite our paper:
 
 ```bib
 @article{Liu2021Fast,

@@ -28,7 +28,7 @@ pip install torchsar
 # Citation
 
 
-If you find the dataset or code is usefull, please kindly cite our papers:
+If you find the dataset or code is useful, please kindly cite our papers:
 
 ```bib
 @article{Liu2021Fast,
