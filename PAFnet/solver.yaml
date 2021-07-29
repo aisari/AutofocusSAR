@@ -1,0 +1,54 @@
+
+sbatch: 8
+nepoch: 1000
+
+Optimizer:
+  Adam:
+    lr: 1.e-2
+    betas: [0.9, 0.999]
+    eps: 1.e-8
+    weight_decay: 0.
+    amsgrad: False
+
+  AdamW:
+    lr: 1.e-2
+    betas: [0.9, 0.999]
+    eps: 1.e-8
+    weight_decay: 1.e-2
+    amsgrad: False
+
+  SGD:
+    lr: 1.e+2
+    momentum: 0.9
+    dampening: 0.
+    weight_decay: 0.
+    nesterov: False
+
+LRScheduler:
+  StepLR:
+    step_size: 100
+    gamma: 0.5
+
+  ExponentialLR:
+    gamma: 0.9988
+
+  DoubleGaussianKernelLR:
+    t_eta_max: 80
+    sigma1: 15
+    sigma2: 100
+    eta_start: 1.e-4
+    eta_stop: 1.e-5
+
+  CosineAnnealingLR:
+    T_max: Null # == nepoch
+    eta_min: 1.e-5
+
+  OneCycleLR:
+    pct_start: 0.3
+    anneal_strategy: 'cos'
+    cycle_momentum: True
+    base_momentum: 0.85
+    max_momentum: 0.95
+    div_factor: 25.0
+    final_div_factor: 1000.0
+
