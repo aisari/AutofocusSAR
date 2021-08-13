@@ -26,6 +26,8 @@ Please see [torchsar](https://aisari.iridescent.ink/torchsar/) for details.
 pip install torchsar
 ```
 
+**Now, all platforms are supported and part of the source code is open!**
+
 # Citation
 
 
