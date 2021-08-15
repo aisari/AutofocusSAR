@@ -1,6 +1,6 @@
 # AutofocusSAR
 
-Codes and dataset for machine learning-based Synthetic Aperture Radar (SAR) autofocus algorithms. Please see [AutofocusSAR Webpage](https://aisari.iridescent.ink/AutofocusSAR/).
+Codes and dataset for machine learning-based Synthetic Aperture Radar (SAR) autofocus algorithms. Please see  [AutofocusSAR Github](https://github.com/aisari/AutofocusSAR/) or [AutofocusSAR Webpage](https://aisari.iridescent.ink/AutofocusSAR/).  **Any commercial use is not allowed!**
 
 # Folder Description
 
@@ -26,13 +26,11 @@ Please see [torchsar](https://aisari.iridescent.ink/torchsar/) for details. The 
 pip install torchsar
 ```
 
-
 **Now, all platforms are supported and part of the source code is open!**
 
 # Citation
 
-
-If you find the datasets or codes are useful, please kindly cite our papers and <iframe src="https://ghbtns.com/github-btn.html?user=aisari&repo=AutofocusSAR&type=star&count=true" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe> our pakcage :
+If you find the datasets or codes are useful, please kindly cite our papers and star our pakcage [AutofocusSAR](https://github.com/aisari/AutofocusSAR) on GitHub:
 
 ```bib
 @article{Liu2021Fast,

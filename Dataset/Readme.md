@@ -48,7 +48,7 @@ The dataset can be downloaded from [BaiduYunPan](https://pan.baidu.com/s/1BW8ZsP
 
 # Citation
 
-If you find the dataset is useful, please kindly cite our paper and star our package:
+If you find the dataset is useful, please kindly cite our paper and star our pakcage [AutofocusSAR](https://github.com/aisari/AutofocusSAR) on GitHub:
 
 ```bib
 @article{Liu2021Fast,

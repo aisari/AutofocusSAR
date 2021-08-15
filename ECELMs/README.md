@@ -16,7 +16,7 @@ python test.py
 
 # Citation
 
-If you find the dataset or this code is useful, please kindly cite our paper:
+If you find the dataset or this code is useful, please kindly cite our paper and star our pakcage [AutofocusSAR](https://github.com/aisari/AutofocusSAR) on GitHub::
 
 ```bib
 @article{Liu2021Fast,
