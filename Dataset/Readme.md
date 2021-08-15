@@ -1,6 +1,8 @@
 
 # Dataset
 
+Please see [AutofocusSAR github](https://github.com/aisari/AutofocusSAR) or [AutofocusSAR webpage](https://aisari.iridescent.ink/AutofocusSAR/) for more details.
+
 ## ALOS PALSAR
 
 ### Obtain RAW SAR data
@@ -46,7 +48,7 @@ The dataset can be downloaded from [BaiduYunPan](https://pan.baidu.com/s/1BW8ZsP
 
 # Citation
 
-If you find the dataset is useful, please kindly cite our paper:
+If you find the dataset is useful, please kindly cite our paper and star our package:
 
 ```bib
 @article{Liu2021Fast,
