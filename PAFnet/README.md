@@ -6,12 +6,7 @@ This is a PyTorch implementation of paper "AFnet and PAFnet: Fast and Accurate S
 
 # Dataset
 
-The dataset can be downloaded from Baidu Yun or Google Drive:
-
-```
-
-
-```
+The dataset can be downloaded from [BaiduYunPan](https://pan.baidu.com/s/1BW8ZsP2TXqNU1MJFQrzZBQ) (accessed on 13 August 2021), the extraction code is ``d7fk``.
 
 
 # Training

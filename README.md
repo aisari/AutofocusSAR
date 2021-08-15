@@ -4,15 +4,15 @@ Codes and dataset for machine learning-based Synthetic Aperture Radar (SAR) auto
 
 # Folder Description
 
-- ``Dataset``: contains all information about dataset. 
-- ``ECELMs`` : contains code of  *Ensemble Convolutional Extreme Learning Machine based Autofocus Algorithms*, such as Bagging-ECELMs.
-- ``PAFnet`` : contains code of  *AFnet and PAFnet: Fast and Accurate SAR Autofocus Based on Deep Learning*.
+- [Dataset](./Dataset/Readme.md): contains all information about dataset. 
+- [ECELMs](./ECELMs/README.md) : contains code of  *Ensemble Convolutional Extreme Learning Machine based Autofocus Algorithms*, such as Bagging-ECELMs.
+- [PAFnet](./PAFnet/README.md) : contains code of  *AFnet and PAFnet: Fast and Accurate SAR Autofocus Based on Deep Learning*.
 
 
 # Algorithms
 
-1. Bagging-ECELMs: Fast SAR Autofocus based on Ensemble Convolutional Extreme Learning Machine, 2021,  [pdf](https://www.mdpi.com/2072-4292/13/14/2683/pdf), [doi](https://www.mdpi.com/2072-4292/13/14/2683)
-
+1. ``Bagging-ECELMs``: Fast SAR Autofocus based on Ensemble Convolutional Extreme Learning Machine, 2021,  [pdf](https://www.mdpi.com/2072-4292/13/14/2683/pdf), [doi](https://www.mdpi.com/2072-4292/13/14/2683)
+2. ``AFnet`` and ``PAFnet``: Fast and Accurate SAR Autofocus Based on Deep Learning, 2021, submitted to TIP
 
 # Usage
 
@@ -20,11 +20,12 @@ Codes and dataset for machine learning-based Synthetic Aperture Radar (SAR) auto
 
 You need first to install our SAR library ( ``torchsar`` ) by excuting the following command:
 
-Please see [torchsar](https://aisari.iridescent.ink/torchsar/) for details.
+Please see [torchsar](https://aisari.iridescent.ink/torchsar/) for details. The package can be installed by
 
 ```bash
 pip install torchsar
 ```
+
 
 **Now, all platforms are supported and part of the source code is open!**
 
