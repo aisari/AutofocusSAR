@@ -1,6 +1,10 @@
 # ECELMs
 
-This is a PyTorch implementation of Bagging-ECELMs. Please refer to "Fast SAR Autofocus based on Ensemble Convolutional Extreme Learning Machine". for details.
+This is a PyTorch implementation of paper "Fast SAR Autofocus based on Ensemble Convolutional Extreme Learning Machine".
+
+Inaccurate Synthetic Aperture Radar (SAR) navigation information will lead to unknown phase errors in SAR data. Uncompensated phase errors can blur the SAR images. Autofocus is a technique that can automatically estimate phase errors from data. However, existing autofocus algorithms either have poor focusing quality or a slow focusing speed. In this paper, an ensemble learning-based autofocus method is proposed. Convolutional Extreme Learning Machine (CELM) is constructed and utilized to estimate the phase error. However, the performance of a single CELM is poor. To overcome this, a novel, metric-based combination strategy is proposed, combining multiple CELMs to further improve the estimation accuracy. The proposed model is trained with the classical bagging-based ensemble learning method. The training and testing process is non-iterative and fast. Experimental results conducted on real SAR data show that the proposed method has a good trade-off between focusing quality and speed.
+
+[Graphical  Abstract of Bagging-ECELMs](./GraphicalAbstractBaggingECELMs.png)
 
 # Training
 
