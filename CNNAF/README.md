@@ -1,6 +1,13 @@
-# ECELMs
+# HAFnet
 
-This is a PyTorch implementation of Bagging-ECELMs. Please refer to "Fast SAR Autofocus based on Ensemble Convolutional Extreme Learning Machine". for details.
+This is a PyTorch implementation of paper "SAR Autofocus based on Convolutional Neural Networks".
+
+**This code will be open-sourced fully after the paper is accept!**
+
+# Dataset
+
+The dataset can be downloaded from [BaiduYunPan](https://pan.baidu.com/s/1BW8ZsP2TXqNU1MJFQrzZBQ) (accessed on 13 August 2021), the extraction code is ``d7fk``.
+
 
 # Training
 
@@ -13,6 +20,7 @@ python train.py
 ```
 python test.py
 ```
+
 
 # Citation
 
@@ -29,6 +37,9 @@ If you find the dataset or this code is useful, please kindly cite our paper and
   year={2021},
   publisher={Multidisciplinary Digital Publishing Institute}
 }
+
+
+
 ```
 
 
