@@ -1,6 +1,6 @@
 # AutofocusSAR
 
-Codes and dataset for machine learning-based Synthetic Aperture Radar (SAR) autofocus algorithms. Please see  [AutofocusSAR Github](https://github.com/aisari/AutofocusSAR/) or [AutofocusSAR Webpage](https://aisari.iridescent.ink/AutofocusSAR/).  **Any commercial use is not allowed!**
+Codes and dataset for machine learning-based Synthetic Aperture Radar (SAR) autofocus algorithms. Please see  [AutofocusSAR Github](https://github.com/aisari/AutofocusSAR/) or [AutofocusSAR Webpage](https://aisari.iridescent.ink/AutofocusSAR/).  **Any commercial use is prohibited!**
 
 # Folder Description
 

@@ -1,4 +1,4 @@
-# HAFnet
+# CNN-AF
 
 This is a PyTorch implementation of paper "SAR Autofocus based on Convolutional Neural Networks".
 
