@@ -1,8 +1,10 @@
-# HAFnet
+# PAFnet
 
 This is a PyTorch implementation of paper "AFnet and PAFnet: Fast and Accurate SAR Autofocus Based on Deep Learning".
 
-**This code will be open-sourced after the paper is published!**
+Autofocus plays a key role in synthetic aperture radar (SAR) imaging, especially for high-resolution imaging. In the literature, the minimum-entropy-based algorithms (MEA) have been proved to be robust and have been widely applied in SAR. However, this kind of method needs hundreds of iterations and is computationally expensive. In this paper, we proposed a non-iterative autofocus scheme based on deep learning and minimum-entropy criterion. It’s an unsupervised framework, which utilizes entropy as the loss function. In this scheme, deep neural networks are utilized for feature extraction and parameter estimation. Based on this scheme, two autofocus models (autofocus network and progressive autofocus network) are proposed. After training, the network learned the rules of autofocus from a large number of examples. Experimental results on real SAR data show that the proposed methods have focusing quality close to the state-of-the-art but with real-time focusing speed.
+
+**This code will be open-sourced fully after the paper is published!**
 
 # Dataset
 
