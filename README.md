@@ -46,7 +46,16 @@ If you find the datasets or codes are useful, please kindly cite our papers and 
   publisher={Multidisciplinary Digital Publishing Institute}
 }
 
-
+@article{Liu2022PAFnet,
+  title={AFnet and PAFnet: Fast and Accurate SAR Autofocus Based on Deep Learning},
+  author={Liu, Zhi and Yang, Shuyuan and Gao, Quanwei and Feng, Zhixi and Wang, Min and Jiao, Licheng},
+  journal={IEEE Transactions on Geoscience and Remote Sensing},
+  year={2022},
+  volume={60},
+  number={},
+  pages={1-13},
+  doi={10.1109/TGRS.2022.3217063}
+}
 
 ```
 

@@ -6,6 +6,12 @@ Inaccurate Synthetic Aperture Radar (SAR) navigation information will lead to un
 
 ![Graphical Abstract of Bagging-ECELMs](./GraphicalAbstractBaggingECELMs.png "Graphical Abstract of Bagging-ECELMs")
 
+# Prepare
+
+Please update the value of ``SAR_AF_DATA_PATH`` in 'data.yaml' to your dataset path.
+
+Please install our newest version of package ``torchbox`` and ``torchsar`` by ``pip install torchbox torchsar``. 
+
 # Training
 
 ```

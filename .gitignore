@@ -1,4 +1,6 @@
 ECELMs/record/RealPE/
+CNNAF/record/RealPE/
+PAFnet/record/RealPE/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

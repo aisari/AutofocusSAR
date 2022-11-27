@@ -1,5 +1,5 @@
 import torch as th
-import torchsar as ts
+import torchbox as tb
 import matplotlib.pyplot as plt
 
 
@@ -20,9 +20,9 @@ logfile = './record/RealPE/1ECELMs/train_valid_test.log'
 plt.figure(figsize=figsize)
 plt.grid()
 
-lossestrain = ts.readnum(logfile, pmain='--->Train ensemble', psub='entropy: ', vfn=float, nshots=nshots)
-lossesvalid = ts.readnum(logfile, pmain='--->Valid ensemble', psub='entropy: ', vfn=float, nshots=nshots)
-lossestest = ts.readnum(logfile, pmain='--->Test ensemble', psub='entropy: ', vfn=float, nshots=nshots)
+lossestrain = tb.readnum(logfile, pmain='--->Train ensemble', psub='entropy: ', vfn=float, nshots=nshots)
+lossesvalid = tb.readnum(logfile, pmain='--->Valid ensemble', psub='entropy: ', vfn=float, nshots=nshots)
+lossestest = tb.readnum(logfile, pmain='--->Test ensemble', psub='entropy: ', vfn=float, nshots=nshots)
 print(lossestrain)
 plt.plot(x, (lossestrain)[::Nsep], lines[0], linewidth=linews[0])
 plt.plot(x, (lossesvalid)[::Nsep], lines[1], linewidth=linews[1])
@@ -43,9 +43,9 @@ plt.show()
 plt.figure(figsize=figsize)
 plt.grid()
 
-lossestrain = ts.readnum(logfile, pmain='--->Train ensemble', psub='contrast: ', vfn=float, nshots=nshots)
-lossesvalid = ts.readnum(logfile, pmain='--->Valid ensemble', psub='contrast: ', vfn=float, nshots=nshots)
-lossestest = ts.readnum(logfile, pmain='--->Test ensemble', psub='contrast: ', vfn=float, nshots=nshots)
+lossestrain = tb.readnum(logfile, pmain='--->Train ensemble', psub='contrast: ', vfn=float, nshots=nshots)
+lossesvalid = tb.readnum(logfile, pmain='--->Valid ensemble', psub='contrast: ', vfn=float, nshots=nshots)
+lossestest = tb.readnum(logfile, pmain='--->Test ensemble', psub='contrast: ', vfn=float, nshots=nshots)
 
 lossestrain = [-x for x in lossestrain]
 lossesvalid = [-x for x in lossesvalid]

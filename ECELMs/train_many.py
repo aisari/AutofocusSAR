@@ -1,6 +1,7 @@
 import os
 import argparse
 import torch as th
+import torchbox as tb
 import torchsar as ts
 from ecelms import BaggingECELMs
 from dataset import readsamples
@@ -123,11 +124,9 @@ for k in range(1, 64, 2):
 
     net = BaggingECELMs(Na, 1, Qas=modelcfg['Qas'], Convs=modelcfg['Convs'], xa=xa, xr=None, cstrategy=cfg.cstrategy, ftshift=ftshift, seed=seed)
 
-    loss_mse_func = th.nn.MSELoss(reduction='mean')
-    loss_ent_func = ts.EntropyLoss('natural', reduction='mean')  # OK
-    loss_cts_func = ts.NegativeContrastLoss('way1', reduction='mean')  # OK
-    loss_fro_func = ts.LogFrobeniusLoss(reduction='mean', p=1)
-    loss_tv_func = ts.TotalVariation(reduction='mean', axis=(2, 3))
+    loss_ent_func = tb.EntropyLoss('natural', cdim=-1, dim=(-3, -2), keepcdim=True, reduction='mean')  # OK
+    loss_cts_func = tb.ContrastLoss('way1', cdim=-1, dim=(-3, -2), keepcdim=True, reduction='mean')  # OK
+    loss_fro_func = tb.Pnorm(p=1, cdim=-1, dim=(-3, -2), keepcdim=True, reduction='mean')
 
     print("Orignal Entropy(Train, Valid, Test):", loss_ent_func(Xtrain).item(), loss_ent_func(Xvalid).item(), loss_ent_func(Xtest).item())
     print("Orignal Contrast(Train, Valid, Test):", loss_cts_func(Xtrain).item(), loss_cts_func(Xvalid).item(), loss_cts_func(Xtest).item())

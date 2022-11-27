@@ -8,9 +8,9 @@
 # from __future__ import print_fntion
 
 import time
-import torchlib as tl
-import torchsar as ts
 import torch as th
+import torchbox as tb
+import torchsar as ts
 from torch.nn.parameter import Parameter
 from collections import OrderedDict
 from dataset import saveimage
@@ -31,9 +31,9 @@ def focus(X, xas, ca=None, pa=None, isfft=True, ftshift=True):
     epa = epa.reshape(sizea)
 
     if isfft:
-        X = ts.fft(X, n=None, axis=-3, norm=None, shift=ftshift)
-    X = ts.ebemulcc(X, epa)
-    X = ts.ifft(X, n=None, axis=-3, norm=None, shift=ftshift)
+        X = tb.fft(X, n=None, cdim=-1, dim=-3, keepcdim=True, norm=None, shift=ftshift)
+    X = tb.ematmul(X, epa, cdim=-1)
+    X = tb.ifft(X, n=None, cdim=-1, dim=-3, keepcdim=True, norm=None, shift=ftshift)
 
     return X
 
@@ -122,9 +122,9 @@ def weights_init(m):
         th.nn.init.normal_(m.weight.data)
         No, Ni, Hk, Wk = m.weight.data.shape
         if Hk * Wk < No * Ni:
-            m.weight.data = tl.orth(m.weight.data.reshape(No * Ni, Hk * Wk)).reshape(No, Ni, Hk, Wk)
+            m.weight.data = tb.orth(m.weight.data.reshape(No * Ni, Hk * Wk)).reshape(No, Ni, Hk, Wk)
         else:
-            m.weight.data = tl.orth(m.weight.data.reshape(No * Ni, Hk * Wk).t()).t().reshape(No, Ni, Hk, Wk)
+            m.weight.data = tb.orth(m.weight.data.reshape(No * Ni, Hk * Wk).t()).t().reshape(No, Ni, Hk, Wk)
         m.bias.data.zero_()
     if isinstance(m, th.nn.Linear):
         th.nn.init.orthogonal_(m.weight.data, th.nn.init.calculate_gain('leaky_relu', 0.5))
@@ -181,7 +181,7 @@ class BaggingECELMs(th.nn.Module):
             self.celms.append(celmn)
 
         self.celms = th.nn.ModuleList(self.celms)
-        self.combine_metric = ts.Entropy('natural', reduction=None)
+        self.combine_metric = tb.Entropy('natural', cdim=-1, dim=(-3, -2), keepcdim=True, reduction=None)
         self.loss_mse_fn = th.nn.MSELoss(reduction='mean')
 
     def forwardn(self, n, X, isfft=True):
@@ -203,7 +203,7 @@ class BaggingECELMs(th.nn.Module):
                 H = self.celms[n].forward_feature(X)
                 pca = self.celms[n].forward_predict(H)
                 Z = focus(X, xa, pca, isfft=isfft, ftshift=self.celms[n].ftshift)
-                S = self.combine_metric(Z)
+                S = self.combine_metric(Z).squeeze(-1)
 
                 idx = S < Smin
                 Y[idx] = Z[idx]
@@ -245,7 +245,7 @@ class BaggingECELMs(th.nn.Module):
 
                 Ns = Xt.shape[0]
                 numBatch = int(Ns / sizeBatch) if Ns % sizeBatch == 0 else int(Ns / sizeBatch) + 1
-                idx = ts.randperm(0, Ns, Ns)
+                idx = tb.randperm(0, Ns, Ns)
                 X, ca = Xt[idx], cat[idx]
                 # print(X.shape, ca.shape, cr.shape, numBatch, sizeBatch, Ns)
                 bestMetric, bestBETA = 1e32, 0
@@ -303,7 +303,7 @@ class BaggingECELMs(th.nn.Module):
         tstart = time.time()
         numSamples = X.shape[0]
         numBatch = int(numSamples / sizeBatch) if numSamples % sizeBatch == 0 else int(numSamples / sizeBatch) + 1
-        # idx = ts.randperm(0, numSamples, numSamples)
+        # idx = tb.randperm(0, numSamples, numSamples)
         idx = list(range(0, numSamples))
         X, ca = X[idx], ca[idx]
         with th.no_grad():
@@ -347,7 +347,7 @@ class BaggingECELMs(th.nn.Module):
         numSamples = X.shape[0]
 
         numBatch = int(numSamples / sizeBatch) if numSamples % sizeBatch == 0 else int(numSamples / sizeBatch) + 1
-        # idx = ts.randperm(0, numSamples, numSamples)
+        # idx = tb.randperm(0, numSamples, numSamples)
         idx = list(range(0, numSamples))
         X, ca = X[idx], ca[idx]
         with th.no_grad():
@@ -423,17 +423,12 @@ if __name__ == '__main__':
     net = CELM(Na, Nr, Qas=[2, 3], Conv=[[16, 11, 1, 1, 1, 0, 0, 1, 1, 1]])
     net = net.to(device)
     X = X.to(device)
-    Y, ca = net.forward_feature(X)
+    H = net.forward_feature(X)
 
-    print(Y.shape)
+    print(H.shape)
     # print(ca)
 
     net = BaggingECELMs(Na, Nr, Qas=[2, 3, 4, 5, 6, 7], Convs=[[[8, 11, 1, 1, 1, 0, 0, 1, 1, 1]], [[16, 7, 1, 1, 1, 0, 0, 1, 1, 1]], [[32, 5, 1, 1, 1, 0, 0, 1, 1, 1]]], seed=2020)
     net = net.to(device)
 
-    # print(net)
 
-    Y, cas = net.forward(X)
-    print(Y.shape, cas.shape)
-    print(Y[0, 0, 0])
-    # print(net.cas)

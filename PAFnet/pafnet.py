@@ -1,15 +1,34 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# @Date    : 2020-07-25 19:44:35
-# @Author  : Zhi Liu (zhiliu.mind@gmail.com)
-# @Link    : http://iridescent.ink
-# @Version : $1.0$
-
-# from __future__ import print_function
+#-*- coding: utf-8 -*-
+# @file      : pafnet.py
+# @author    : Zhi Liu
+# @email     : zhiliu.mind@gmail.com
+# @homepage  : http://iridescent.ink
+# @date      : Sat Nov 26 2022
+# @version   : 2.0
+# @license   : The Apache License 2.0
+# @note      : 
+# 
+# The Apache 2.0 License
+# Copyright (C) 2013- Zhi Liu
+#
+#Licensed under the Apache License, Version 2.0 (the "License");
+#you may not use this file except in compliance with the License.
+#You may obtain a copy of the License at
+#
+#http://www.apache.org/licenses/LICENSE-2.0
+#
+#Unless required by applicable law or agreed to in writing, software
+#distributed under the License is distributed on an "AS IS" BASIS,
+#WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#See the License for the specific language governing permissions and
+#limitations under the License.
+#
 
 import time
-import torchsar as ts
 import torch as th
+import torchbox as tb
+import torchsar as ts
 from torch.nn.parameter import Parameter
 from collections import OrderedDict
 from dataset import saveimage
@@ -91,9 +110,9 @@ class Focuser(th.nn.Module):
         epa = th.stack((th.cos(pa), -th.sin(pa)), dim=-1)
         epa = epa.reshape(sizea)
 
-        X = ts.fft(X, n=None, axis=-3, norm=None, shift=self.ftshift)
-        X = ts.ebemulcc(X, epa)
-        X = ts.ifft(X, n=None, axis=-3, norm=None, shift=self.ftshift)
+        X = tb.fft(X, n=None, cdim=-1, dim=-3, keepcdim=True, norm=None, shift=self.ftshift)
+        X = tb.ematmul(X, epa, cdim=-1)
+        X = tb.ifft(X, n=None, cdim=-1, dim=-3, keepcdim=True, norm=None, shift=self.ftshift)
 
         return X, ca
 
@@ -142,6 +161,24 @@ class PAFnet(th.nn.Module):
 
         return X, cas
 
+    def visual_features(self, X, idx, device='cpu'):
+
+        if self.Nf != 1:
+            raise ValueError("Only support 1 Focuser now!")
+
+        d = X.dim()
+
+        X = th.stack((X[..., 0], X[..., 1]), dim=1)
+        for i, j in enumerate(idx):
+            for n in range(self.Nf):
+                Xi = X[[i]].to(device)
+                layers = self.focusers[n].features
+                for k in range(len(layers) - 1):
+                    Xi = layers[k](Xi)
+                C = Xi.shape[1]
+                tb.imshow([tb.mapping(Xi[0, c, :, :].detach().cpu().abs()) for c in range(C)], outfile='FeaturesOfFocuser%dOfImage%d.svg' % (n, j))
+
+
     def train_epoch(self, X, sizeBatch, loss_ent_func, loss_cts_func, loss_fro_func, loss_type, epoch, optimizer, scheduler, device):
         self.train()
 
@@ -149,7 +186,7 @@ class PAFnet(th.nn.Module):
         numSamples = X.shape[0]
 
         numBatch = int(numSamples / sizeBatch)
-        idx = ts.randperm(0, numSamples, numSamples)
+        idx = tb.randperm(0, numSamples, numSamples)
         lossENTv, lossCTSv, lossFROv, lossvtrain = 0., 0., 0., 0.
         # t1, t2, t3 = 0., 0., 0.
         for b in range(numBatch):
@@ -300,6 +337,34 @@ class PAFnet(th.nn.Module):
               (epoch, lossvtest, lossENTv, lossFROv, lossCTSv, tend - tstart))
 
         return lossvtest
+
+    def visual_epoch(self, X, sizeBatch, loss_ent_func, loss_cts_func, device):
+        self.eval()
+
+        numSamples = X.shape[0]
+
+        numBatch = int(numSamples / sizeBatch)
+        idx = list(range(numSamples))
+        Y = th.zeros_like(X)
+        with th.no_grad():
+            for n in range(self.Nf):
+                tstart = time.time()
+                for b in range(numBatch):
+                    i = idx[b * sizeBatch:(b + 1) * sizeBatch]
+                    xi = X[i]
+                    xi = xi.to(device)
+
+                    pyi, _ = self.focusers[n](xi)
+                    Y[i] = pyi.detach().cpu()
+
+                tend = time.time()
+                lossentv = loss_ent_func(Y).item()
+                lossctsv = loss_cts_func(Y).item()
+                X = Y
+
+                print('Focuser: %d, Entropy: %.4f, Contrast: %.4f, Time: %.2fs' % (n, lossentv, lossctsv, tend - tstart))
+                saveimage(X, X, [0, 1, 2], prefixname='visual%d' % n, outfolder='snapshot/')
+
 
     def plot(self, xi, cai, cri, xa, idx, prefixname, outfolder, device):
 

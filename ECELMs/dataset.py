@@ -1,6 +1,6 @@
 import torch as th
 import numpy as np
-import torchsar as ts
+import torchbox as tb
 
 # drange = [0, 1023]
 drange = [0, 255]
@@ -8,9 +8,9 @@ drange = [0, 255]
 
 def readdata(datafile, key=['SI', 'ca', 'cr'], index=None):
     if datafile[datafile.rfind('.'):] == '.mat':
-        data = ts.loadmat(datafile)
+        data = tb.loadmat(datafile)
     if datafile[datafile.rfind('.'):] in ['.h5', '.hdf5']:
-        data = ts.loadh5(datafile)
+        data = tb.loadh5(datafile)
     X, pa, pr = data[key[0]], data[key[1]], data[key[2]]
     del data
     if index is not None:
@@ -77,9 +77,9 @@ def readsamples(datafiles, keys=[['SI', 'ca', 'cr']], nsamples=[10], groups=[1],
             for g in range(group):
                 idx += list(range(int(M * g), int(M * g + M), int(M / m)))[:m]
         if mode in ['randomly', 'Randomly']:
-            ts.setseed(seed)
+            tb.setseed(seed)
             for g in range(group):
-                idx += ts.randperm(int(M * g), int(M * g + M), m)
+                idx += tb.randperm(int(M * g), int(M * g + M), m)
 
         K = len(idx)
         nps, npe = 0, 0
@@ -99,9 +99,9 @@ def readsamples(datafiles, keys=[['SI', 'ca', 'cr']], nsamples=[10], groups=[1],
 
 def get_samples(datafile, nsamples=10000, region=None, size=(512, 512), index=None, seed=2020):
     if datafile[datafile.rfind('.'):] == '.mat':
-        data = ts.loadmat(datafile)
+        data = tb.loadmat(datafile)
     if datafile[datafile.rfind('.'):] in ['.h5', '.hdf5']:
-        data = ts.loadh5(datafile)
+        data = tb.loadh5(datafile)
     SI = data['SI']
 
     del data
@@ -123,12 +123,12 @@ def _sample(SI, nsamples, size, index, seed=None):
     if nsamples < N:
         N = 1
     num_each = int(nsamples / N)
-    ts.setseed(seed)
+    tb.setseed(seed)
     for n in range(N):
         imgsize = SI[n].shape  # H-W-2
         if index is None:
-            ys = ts.randperm(0, imgsize[0] - size[0] + 1, num_each)
-            xs = ts.randperm(0, imgsize[1] - size[1] + 1, num_each)
+            ys = tb.randperm(0, imgsize[0] - size[0] + 1, num_each)
+            xs = tb.randperm(0, imgsize[1] - size[1] + 1, num_each)
         else:
             ys, xs = index[0], index[1]
         for k in range(num_each):
@@ -150,15 +150,15 @@ def saveimage(X, Y, idx, prefixname='train', outfolder='./snapshot/'):
     X = X.pow(2).sum(-1).sqrt()
     Y = Y.pow(2).sum(-1).sqrt()
 
-    X, Y = ts.mapping(X), ts.mapping(Y)
+    X, Y = tb.mapping(X), tb.mapping(Y)
     X = X.cpu().detach().numpy()
     Y = Y.cpu().detach().numpy()
 
     for i, ii in zip(range(len(idx)), idx):
         outfileX = outfolder + prefixname + '_unfocused' + str(ii) + '.tif'
         outfileY = outfolder + prefixname + '_focused' + str(ii) + '.tif'
-        ts.imsave(outfileX, X[i])
-        ts.imsave(outfileY, Y[i])
+        tb.imsave(outfileX, X[i])
+        tb.imsave(outfileY, Y[i])
 
 
 if __name__ == "__main__":
