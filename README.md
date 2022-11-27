@@ -5,16 +5,16 @@ Codes and dataset for machine learning-based Synthetic Aperture Radar (SAR) auto
 # Folder Description
 
 - [Dataset](./Dataset/Readme.md): contains all information about dataset. 
-- [ECELMs](./ECELMs/README.md) : contains code of  *Ensemble Convolutional Extreme Learning Machine based Autofocus Algorithms*, such as ``Bagging-ECELMs``.
+- [ECELMs](./ECELMs/README.md) : contains code of  *Ensemble Convolutional Extreme Learning Machine based Autofocus Algorithms*, models: ``Bagging-ECELMs``.
 - [CNNAF](./CNNAF/README.md) : contains code of  *SAR Autofocus based on Convolutional Neural Networks*.
-- [PAFnet](./PAFnet/README.md) : contains code of  *AFnet and PAFnet: Fast and Accurate SAR Autofocus Based on Deep Learning*.
+- [PAFnet](./PAFnet/README.md) : contains code of  *AFnet and PAFnet: Fast and Accurate SAR Autofocus Based on Deep Learning*, models: ``AFnet``, ``PAFnet``.
 
 
 # Algorithms
 
-1. ``Bagging-ECELMs``: Fast SAR Autofocus based on Ensemble Convolutional Extreme Learning Machine, 2021,  [pdf](https://www.mdpi.com/2072-4292/13/14/2683/pdf), [doi](https://www.mdpi.com/2072-4292/13/14/2683)
+1. ``Dataset`` or ``Bagging-ECELMs``: Fast SAR Autofocus based on Ensemble Convolutional Extreme Learning Machine, 2021, [pdf](https://www.mdpi.com/2072-4292/13/14/2683/pdf), [doi](https://www.mdpi.com/2072-4292/13/14/2683)
 2. ``CNN-AF``: SAR Autofocus based on Convolutional Neural Networks, 2021, submitted to Journal of Radars
-3. ``AFnet`` and ``PAFnet``: Fast and Accurate SAR Autofocus Based on Deep Learning, 2021, submitted to TIP
+3. ``AFnet`` and ``PAFnet``: Fast and Accurate SAR Autofocus Based on Deep Learning, 2022, [pdf](https://ieeexplore.ieee.org/document/9931653), [doi](https://doi.org/10.1109/TGRS.2022.3217063)
 
 # Usage
 
