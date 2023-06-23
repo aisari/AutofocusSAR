@@ -123,9 +123,9 @@ os.makedirs(outfolder + '/weights', exist_ok=True)
 
 net = BaggingECELMs(Na, 1, Qas=modelcfg['Qas'], Convs=modelcfg['Convs'], xa=xa, xr=None, cstrategy=cfg.cstrategy, ftshift=ftshift, seed=seed)
 
-loss_ent_func = tb.EntropyLoss('natural', cdim=-1, dim=(-3, -2), keepcdim=True, reduction='mean')  # OK
-loss_cts_func = tb.ContrastLoss('way1', cdim=-1, dim=(-3, -2), keepcdim=True, reduction='mean')  # OK
-loss_fro_func = tb.Pnorm(p=1, cdim=-1, dim=(-3, -2), keepcdim=True, reduction='mean')
+loss_ent_func = tb.EntropyLoss('natural', cdim=-1, dim=(-3, -2), reduction='mean')  # OK
+loss_cts_func = tb.ContrastLoss('way1', cdim=-1, dim=(-3, -2), reduction='mean')  # OK
+loss_fro_func = tb.Pnorm(p=1, cdim=-1, dim=(-3, -2), reduction='mean')
 
 print("Orignal Entropy(Train, Valid, Test):", loss_ent_func(Xtrain).item(), loss_ent_func(Xvalid).item(), loss_ent_func(Xtest).item())
 print("Orignal Contrast(Train, Valid, Test):", loss_cts_func(Xtrain).item(), loss_cts_func(Xvalid).item(), loss_cts_func(Xtest).item())

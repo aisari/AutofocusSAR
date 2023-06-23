@@ -133,10 +133,6 @@ print(net)
 net.to(device=device)
 net.eval()
 
-loss_ent_func = tb.EntropyLoss('natural', cdim=-1, dim=(-3, -2), keepcdim=True, reduction='mean')  # OK
-loss_cts_func = tb.ContrastLoss('way1', cdim=-1, dim=(-3, -2), keepcdim=True, reduction='mean')  # OK
-loss_fro_func = tb.Pnorm(p=1, cdim=-1, dim=(-3, -2), keepcdim=True, reduction='mean')
-
 tstart = time.time()
 
 # net.visual_epoch(X, size_batch, loss_ent_func, loss_cts_func, device=device)

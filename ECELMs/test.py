@@ -147,9 +147,9 @@ net.eval()
 xa = ts.ppeaxis(Na, norm=True, shift=True, mode='fftfreq')
 # xa = ts.fftfreq(Na, Na, norm=True, shift=True).reshape(1, Na)
 
-loss_ent_func = tb.EntropyLoss('natural', cdim=-1, dim=(-3, -2), keepcdim=True, reduction='mean')  # OK
-loss_cts_func = tb.ContrastLoss('way1', cdim=-1, dim=(-3, -2), keepcdim=True, reduction='mean')  # OK
-loss_fro_func = tb.Pnorm(p=1, cdim=-1, dim=(-3, -2), keepcdim=True, reduction='mean')
+loss_ent_func = tb.EntropyLoss('natural', cdim=-1, dim=(-3, -2), reduction='mean')  # OK
+loss_cts_func = tb.ContrastLoss('way1', cdim=-1, dim=(-3, -2), reduction='mean')  # OK
+loss_fro_func = tb.Pnorm(p=1, cdim=-1, dim=(-3, -2), reduction='mean')
 
 
 lossvtest = net.ensemble_test(X, ca, cr, size_batch, loss_ent_func, loss_cts_func, loss_fro_func, device, name='Test')

@@ -1,4 +1,4 @@
-import torchsar as ts
+import torchbox as tb
 import matplotlib.pyplot as plt
 
 
@@ -19,8 +19,8 @@ logfile = './record/PE1d/train.log'
 plt.figure(figsize=figsize)
 plt.grid()
 
-lossestrain = ts.readnum(logfile, pmain='--->Train', psub='loss: ', vfn=float, nshots=nshots)
-lossesvalid = ts.readnum(logfile, pmain='--->Valid', psub='loss: ', vfn=float, nshots=nshots)
+lossestrain = tb.readnum(logfile, pmain='--->Train', psub='loss: ', vfn=float, nshots=nshots)
+lossesvalid = tb.readnum(logfile, pmain='--->Valid', psub='loss: ', vfn=float, nshots=nshots)
 
 plt.plot(x, (lossestrain)[::Nsep], lines[0], linewidth=linews[0])
 plt.plot(x, (lossesvalid)[::Nsep], lines[1], linewidth=linews[1])
@@ -31,6 +31,6 @@ plt.yticks(fontproperties=fonttype, size=fontsize)
 # plt.title('Testing loss versus epoch')
 plt.legend(legend, prop=fontdict)
 plt.subplots_adjust(left=0.14, bottom=0.12, right=0.995, top=0.96, wspace=0, hspace=0)
-plt.savefig('./LossCNNAF.pdf')
+plt.savefig('./LossVDNNAF.pdf')
 
 plt.show()

@@ -181,7 +181,7 @@ class BaggingECELMs(th.nn.Module):
             self.celms.append(celmn)
 
         self.celms = th.nn.ModuleList(self.celms)
-        self.combine_metric = tb.Entropy('natural', cdim=-1, dim=(-3, -2), keepcdim=True, reduction=None)
+        self.combine_metric = tb.Entropy('natural', cdim=-1, dim=(-3, -2), reduction=None)
         self.loss_mse_fn = th.nn.MSELoss(reduction='mean')
 
     def forwardn(self, n, X, isfft=True):

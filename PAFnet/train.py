@@ -161,9 +161,9 @@ net = PAFnet(Na, 1, Mas=modelcfg['Mas'], lpaf=modelcfg['lpaf'], xa=xa, ftshift=f
 
 checkpoint_path = outfolder + '/weights/'
 
-loss_ent_func = tb.EntropyLoss('natural', cdim=-1, dim=(-3, -2), keepcdim=True, reduction='mean')  # OK
-loss_cts_func = tb.ContrastLoss('way1', cdim=-1, dim=(-3, -2), keepcdim=True, reduction='mean')  # OK
-loss_fro_func = tb.Pnorm(p=1, cdim=-1, dim=(-3, -2), keepcdim=True, reduction='mean')
+loss_ent_func = tb.EntropyLoss('natural', cdim=-1, dim=(1, 2), reduction='mean')  # OK
+loss_cts_func = tb.ContrastLoss('way1', cdim=-1, dim=(1, 2), reduction='mean')  # OK
+loss_fro_func = tb.Pnorm(p=1, cdim=-1, dim=(1, 2), reduction='mean')
 
 # if cfg.modelfile is not None:
 #     modelfile = cfg.modelfile

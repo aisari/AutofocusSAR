@@ -101,12 +101,12 @@ netaf.eval()
 nethaf.to(device=device)
 nethaf.eval()
 
-xa = ts.fftfreq(Na, Na, norm=True, shift=True).reshape(1, Na)
+xa = tb.fftfreq(Na, Na, norm=True, shift=True).reshape(1, Na)
 
 loss_mse_func = th.nn.MSELoss(reduction='mean')
-loss_ent_func = tb.EntropyLoss('natural', cdim=-1, dim=(-3, -2), keepcdim=True, reduction='mean')  # OK
-loss_cts_func = tb.ContrastLoss('way1', cdim=-1, dim=(-3, -2), keepcdim=True, reduction='mean')  # OK
-loss_fro_func = tb.PnormLoss(p=1, cdim=-1, dim=(-3, -2), keepcdim=True, reduction='mean')
+loss_ent_func = tb.EntropyLoss('natural', cdim=-1, dim=(1, 2), reduction='mean')  # OK
+loss_cts_func = tb.ContrastLoss('way1', cdim=-1, dim=(1, 2), reduction='mean')  # OK
+loss_fro_func = tb.Pnorm(p=1, cdim=-1, dim=(1, 2), reduction='mean')
 
 # X, Ca, Cr = X[80:101], Ca[80:101], Cr[80:101]
 # X, Ca, Cr = X[7880:7901], Ca[7880:7901], Cr[7880:7901]
@@ -162,8 +162,8 @@ for n in range(N):
         fpga = fpga.pow(2).sum(-1).sqrt()
         fnmea = fnmea.pow(2).sum(-1).sqrt()
 
-        x, faf, fhaf = ts.mapping(x), ts.mapping(faf), ts.mapping(fhaf)
-        fpga, fnmea = ts.mapping(fpga), ts.mapping(fnmea)
+        x, faf, fhaf = tb.mapping(x), tb.mapping(faf), tb.mapping(fhaf)
+        fpga, fnmea = tb.mapping(fpga), tb.mapping(fnmea)
         x = x.cpu().detach().numpy()
         faf = faf.cpu().detach().numpy()
         fhaf = fhaf.cpu().detach().numpy()
@@ -175,10 +175,10 @@ for n in range(N):
         outfileFhaf = outfolder + '/tests/' + prefixname + '_focused_hafnet' + str(n) + '.tif'
         outfileFpga = outfolder + '/tests/' + prefixname + '_focused_pga' + str(n) + '.tif'
         outfileFnmea = outfolder + '/tests/' + prefixname + '_focused_fnmea' + str(n) + '.tif'
-        ts.imsave(outfileX, x)
-        ts.imsave(outfileFaf, faf)
-        ts.imsave(outfileFpga, fpga)
-        ts.imsave(outfileFnmea, fnmea)
+        tb.imsave(outfileX, x)
+        tb.imsave(outfileFaf, faf)
+        tb.imsave(outfileFpga, fpga)
+        tb.imsave(outfileFnmea, fnmea)
 
     if isplot:
 

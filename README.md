@@ -6,9 +6,9 @@ Codes and dataset for machine learning-based Synthetic Aperture Radar (SAR) auto
 
 - [Dataset](./Dataset/Readme.md): contains all information about dataset. 
 - [ECELMs](./ECELMs/README.md) : contains code of  *Ensemble Convolutional Extreme Learning Machine based Autofocus Algorithms*, models: ``Bagging-ECELMs``.
-- [CNNAF](./CNNAF/README.md) : contains code of  *SAR Autofocus based on Convolutional Neural Networks*.
 - [PAFnet](./PAFnet/README.md) : contains code of  *AFnet and PAFnet: Fast and Accurate SAR Autofocus Based on Deep Learning*, models: ``AFnet``, ``PAFnet``.
-
+- [VDNNAF](./VDNNAF/README.md) : contains code of  *A Finely Focusing Method of SAR Using Very Deep Neural Network*, (implenmented by me, not the official).
+- [CNNAF](./CNNAF/README.md) : contains code of  *SAR Autofocus based on Convolutional Neural Networks*.
 
 # Algorithms
 
@@ -32,7 +32,7 @@ pip install torchsar
 
 # Citation
 
-If you find the datasets or codes are useful, please kindly cite our papers and star our pakcage [AutofocusSAR](https://github.com/aisari/AutofocusSAR) on GitHub:
+If you find the datasets or codes are useful, please kindly cite our papers and star our pakcage [AutofocusSAR](https://github.com/aisari/AutofocusSAR), [torchsar](https://github.com/aisari/torchsar), [torchbox](https://github.com/antsfamily/torchbox) on GitHub:
 
 ```bib
 @article{Liu2021Fast,

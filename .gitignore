@@ -2,6 +2,9 @@ ECELMs/record/RealPE/
 CNNAF/record/RealPE/
 PAFnet/record/RealPE/
 
+*.pth.tar
+*.pt
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

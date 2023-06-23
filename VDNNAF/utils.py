@@ -59,7 +59,6 @@ def saveimage(X, Y, F, idx, prefixname='train', outfolder='./snapshot/'):
     F = F.cpu().detach().numpy()
 
     for i, ii in zip(range(len(idx)), idx):
-        # print(i, ii)
         outfileX = outfolder + prefixname + '_unfocused' + str(ii) + '.tif'
         outfileY = outfolder + prefixname + '_gtruth' + str(ii) + '.tif'
         outfileF = outfolder + prefixname + '_focused' + str(ii) + '.tif'
