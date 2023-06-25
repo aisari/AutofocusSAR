@@ -13,7 +13,7 @@ Codes and dataset for machine learning-based Synthetic Aperture Radar (SAR) auto
 # Algorithms
 
 1. ``Dataset`` or ``Bagging-ECELMs``: Fast SAR Autofocus based on Ensemble Convolutional Extreme Learning Machine, 2021, [pdf](https://www.mdpi.com/2072-4292/13/14/2683/pdf), [doi](https://www.mdpi.com/2072-4292/13/14/2683)
-2. ``CNN-AF``: SAR Autofocus based on Convolutional Neural Networks, 2021, submitted to Journal of Radars
+2. ``CNN-AF``: SAR Autofocus based on Convolutional Neural Networks
 3. ``AFnet`` and ``PAFnet``: Fast and Accurate SAR Autofocus Based on Deep Learning, 2022, [pdf](https://ieeexplore.ieee.org/document/9931653), [doi](https://doi.org/10.1109/TGRS.2022.3217063)
 
 # Usage
