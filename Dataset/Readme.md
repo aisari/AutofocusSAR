@@ -42,7 +42,7 @@ Table3: Information of  selected regions.
 
 
 
-The dataset can be downloaded from [BaiduYunPan](https://pan.baidu.com/s/1BW8ZsP2TXqNU1MJFQrzZBQ) (accessed on 13 August 2021), the extraction code is ``d7fk``.
+The dataset can be downloaded from [MEGA part1](https://mega.nz/folder/02khBbbb#eeWwsYAGVXVpSah9wn5lUQ) (part1), [MEGA part2](https://mega.nz/folder/DY8EzDya#BH3z6N7dEzL05C5OF8xlMw) or [BaiduYunPan all parts](https://pan.baidu.com/s/1BW8ZsP2TXqNU1MJFQrzZBQ) (accessed on 13 August 2021), the extraction code is ``d7fk``.
 
 
 

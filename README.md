@@ -22,7 +22,7 @@ Codes and dataset for machine learning-based Synthetic Aperture Radar (SAR) auto
 
 You need first to install our SAR library ( ``torchsar`` ) by excuting the following command:
 
-Please see [torchsar](https://aisari.iridescent.ink/torchsar/) for details. The package can be installed by
+Please see [torchsar](https://aisari.iridescent.ink/torchsar/) for details (e.g. install on Windows). The package can be installed by
 
 ```bash
 pip install torchsar
