@@ -37,7 +37,8 @@ If you find the dataset or this code is useful, please kindly cite our paper and
   number={14},
   pages={2683},
   year={2021},
-  publisher={Multidisciplinary Digital Publishing Institute}
+  publisher={Multidisciplinary Digital Publishing Institute},
+  doi={https://doi.org/10.3390/rs13142683}
 }
 ```
 

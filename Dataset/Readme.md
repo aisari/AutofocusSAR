@@ -40,9 +40,7 @@ Table3: Information of  selected regions.
 | 8  | ALPSRP273680670  | SimiValley | (15000, 2000)  | 7185  | 2155.1724  |
 | 9  | ALPSRP278552780  | Toledo     | (15000, 1000)  | 7178  | 2141.3276  |
 
-
-
-The dataset can be downloaded from [MEGA part1](https://mega.nz/folder/02khBbbb#eeWwsYAGVXVpSah9wn5lUQ) (part1), [MEGA part2](https://mega.nz/folder/DY8EzDya#BH3z6N7dEzL05C5OF8xlMw) or [BaiduYunPan all parts](https://pan.baidu.com/s/1BW8ZsP2TXqNU1MJFQrzZBQ) (accessed on 13 August 2021), the extraction code is ``d7fk``.
+To make defocused data, different effective velocities are applied to compute the matched filter in azimuth when executing the range-Doppler algorithm. Image patches with size 256×256 are selected from the above sub-regions to create the final dataset.  Please see our [paper](https://doi.org/10.3390/rs13142683) for details. The final dataset can be downloaded from [MEGA part1](https://mega.nz/folder/02khBbbb#eeWwsYAGVXVpSah9wn5lUQ) (part1), [MEGA part2](https://mega.nz/folder/DY8EzDya#BH3z6N7dEzL05C5OF8xlMw) or [BaiduYunPan all parts](https://pan.baidu.com/s/1BW8ZsP2TXqNU1MJFQrzZBQ) (accessed on 13 August 2021), the extraction code is ``d7fk``.
 
 
 
@@ -59,7 +57,8 @@ If you find the dataset is useful, please kindly cite our paper and star our pak
   number={14},
   pages={2683},
   year={2021},
-  publisher={Multidisciplinary Digital Publishing Institute}
+  publisher={Multidisciplinary Digital Publishing Institute},
+  doi={https://doi.org/10.3390/rs13142683}
 }
 ```
 
