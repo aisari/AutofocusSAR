@@ -8,7 +8,7 @@ Autofocus plays a key role in synthetic aperture radar (SAR) imaging, especially
 
 # Dataset
 
-The dataset can be downloaded from [BaiduYunPan](https://pan.baidu.com/s/1BW8ZsP2TXqNU1MJFQrzZBQ) (accessed on 13 August 2021), the extraction code is ``d7fk``.
+Please see our [paper](10.1109/TGRS.2022.3217063) and [dataset page](https://aisari.iridescent.ink/AutofocusSAR/Dataset/) for details.
 
 
 # Prepare

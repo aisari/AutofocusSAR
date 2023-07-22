@@ -1,8 +1,7 @@
-# CNN-AF
+# VDNN-AF
 
-This is a PyTorch implementation of paper "SAR Autofocus based on Convolutional Neural Networks".
+This is a PyTorch implementation of paper *A Finely Focusing Method of SAR Using Very Deep Neural Network*, (implenmented by me, not the official).
 
-**This code will be open-sourced fully after the paper is accept!**
 
 # Dataset
 
